@@ -1,3 +1,22 @@
 from django.db import models
+from element.models import Element
 
-# Create your models here.
+
+class Enemy(models.Model):
+    class Meta:
+        db_table = 'enemy'
+
+    name = models.CharField(max_length=255)
+    level = models.PositiveIntegerField()
+    live_points = models.DecimalField()
+    resist_against_element = models.ForeignKey(Element)
+    weak_against_element = models.ForeignKey(Element)
+    max_hit_points = models.DecimalField()
+    min_hit_points = models.DecimalField()
+    armor_points = models.DecimalField()
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return f'Enemy - {self.pk}'

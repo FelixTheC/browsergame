@@ -14,6 +14,7 @@ class Player(User):
     max_live_points = models.PositiveIntegerField(default=100, blank=True)
     mana_points = models.PositiveIntegerField(default=50, blank=True)
     max_mana_points = models.PositiveIntegerField(default=50, blank=True)
+    armor_points = models.DecimalField(default=5.0, blank=True)
     spells = models.ManyToManyField(Spell)
 
     def __str__(self):
