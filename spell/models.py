@@ -7,7 +7,7 @@ class Spell(models.Model):
         db_table = 'spell'
     name = models.CharField(max_length=255)
     mana_cost = models.DecimalField()
-    element_type = models.ForeignKey(Element)
+    element_type = models.ForeignKey(Element, on_delete=models.SET_NULL)
     max_hit_points = models.DecimalField()
     min_hit_points = models.DecimalField()
 

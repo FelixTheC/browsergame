@@ -15,7 +15,7 @@ class Player(User):
     mana_points = models.PositiveIntegerField(default=50, blank=True)
     max_mana_points = models.PositiveIntegerField(default=50, blank=True)
     armor_points = models.DecimalField(default=5.0, blank=True)
-    spells = models.ManyToManyField(Spell)
+    spells = models.ManyToManyField(Spell, blank=True, null=True)
 
     def __str__(self):
         return self.username
